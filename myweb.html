@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xiang Zhao | MedTech Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    animation: {
+                        'scan': 'scan 3s linear infinite',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        scan: {
+                            '0%, 100%': { top: '0%' },
+                            '50%': { top: '100%' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { background-color: #F5F5F7; color: #1D1D1F; }
+        
+        /* 苹果风卡片核心样式 */
+        .bento-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px); /* 毛玻璃特效 */
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 1.75rem;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        
+        .bento-card:hover {
+            transform: translateY(-4px) scale(1.01);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.01);
+            border-color: rgba(0, 122, 255, 0.3);
+        }
+
+        /* 纯CSS绘制的模拟脑图背景（如果没有图片也不丑） */
+        .brain-pattern {
+            background-image: radial-gradient(#3B82F6 1px, transparent 1px);
+            background-size: 10px 10px;
+            opacity: 0.2;
+        }
+
+        /* 打字机光标 */
+        .cursor {
+            display: inline-block;
+            width: 2px;
+            background-color: #000;
+            animation: blink 1s infinite;
+        }
+        @keyframes blink { 50% { opacity: 0; } }
+    </style>
+</head>
+<body class="p-4 md:p-10 min-h-screen flex justify-center items-center selection:bg-blue-500 selection:text-white">
+
+    <!-- 复制提示框 -->
+    <div id="toast" class="fixed bottom-10 left-1/2 -translate-x-1/2 bg-black/80 text-white px-6 py-3 rounded-full text-sm backdrop-blur-md opacity-0 transition-opacity duration-300 pointer-events-none z-50 flex items-center gap-2">
+        <i class="ph ph-check-circle text-green-400"></i> Email Copied!
+    </div>
+
+    <div class="max-w-6xl w-full space-y-6">
+
+        <!-- 头部信息 -->
+        <div class="flex flex-col md:flex-row justify-between items-end pb-2 px-2">
+            <div>
+                <h1 class="text-5xl md:text-7xl font-bold tracking-tight text-gray-900 mb-2">
+                    Xiang Zhao
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-500 font-light flex items-center gap-2">
+                    I am a <span id="typewriter" class="font-medium text-black">Medical Engineer</span><span class="cursor">&nbsp;</span>
+                </p>
+            </div>
+            <div class="mt-4 md:mt-0 flex gap-3">
+                <a href="mailto:shawn.zhao24@outlook.com" class="bg-black text-white px-5 py-2.5 rounded-full font-medium text-sm hover:bg-gray-800 transition shadow-lg">
+                    Contact Me
+                </a>
+                <div class="w-10 h-10 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-400">
+                    <i class="ph ph-map-pin"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- BENTO GRID 布局 -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[180px]">
+
+            <!-- 1. [核心亮点] 脑肿瘤分割项目 (2x2) -->
+            <div class="bento-card md:col-span-2 md:row-span-2 relative overflow-hidden group bg-gradient-to-br from-slate-900 to-slate-800 text-white border-none">
+                
+                <!-- 背景：模拟的脑图纹理 -->
+                <div class="absolute inset-0 brain-pattern"></div>
+                
+                <!-- 核心特效：MRI 扫描线动画 -->
+                <div class="absolute top-0 left-0 w-full h-full opacity-30 pointer-events-none">
+                    <div class="w-full h-1 bg-blue-400 shadow-[0_0_20px_rgba(96,165,250,0.8)] absolute animate-scan"></div>
+                </div>
+
+                <div class="relative z-10 p-8 h-full flex flex-col justify-between">
+                    <div class="flex justify-between items-start">
+                        <span class="bg-blue-500/20 border border-blue-400/30 text-blue-100 text-xs font-semibold px-3 py-1 rounded-full backdrop-blur-sm">Featured Project</span>
+                        <i class="ph ph-brain text-3xl text-blue-400"></i>
+                    </div>
+                    
+                    <div>
+                        <h2 class="text-3xl font-bold mb-2 group-hover:text-blue-200 transition">NeuroMetric AI</h2>
+                        <p class="text-gray-300 text-sm leading-relaxed max-w-sm">
+                            End-to-end 3D MRI Brain Tumor Segmentation using <strong>PyTorch</strong> & <strong>MONAI</strong>. 
+                            Features automated volumetric analysis and N4 bias correction.
+                        </p>
+                        
+                        <!-- 装饰用的模拟数据标签 -->
+                        <div class="mt-4 flex gap-3 text-[10px] font-mono text-blue-300/80">
+                            <div class="bg-white/10 px-2 py-1 rounded">DICE: 0.89</div>
+                            <div class="bg-white/10 px-2 py-1 rounded">VOL: 34.2cm³</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 可以在这里把你的真实截图加进去，去掉注释即可 -->
+                <!-- <img src="./project.png" class="absolute bottom-0 right-0 w-64 rounded-tl-xl shadow-2xl transition transform group-hover:scale-105 group-hover:-translate-y-2" /> -->
+            </div>
+
+            <!-- 2. 状态卡片 (1x1) -->
+            <div class="bento-card p-6 flex flex-col justify-between bg-white">
+                <div class="flex justify-between items-center">
+                    <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+                    <span class="text-[10px] font-bold text-gray-400 uppercase">Status</span>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold text-gray-800">FAU</h3>
+                    <p class="text-xs text-gray-500 mt-1">Master's Student</p>
+                    <div class="mt-3 text-xs bg-gray-100 p-2 rounded text-gray-600">
+                        <i class="ph ph-book-open mr-1"></i> Learning MRI Recon
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. 地理位置 (1x1) -->
+            <div class="bento-card p-0 relative overflow-hidden group">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d41527.85591072412!2d10.9847!3d49.5976!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a1f8c7d57c34a1%3A0x41eda32beb5c7d0!2sErlangen!5e0!3m2!1sen!2sde" 
+                        class="w-full h-full opacity-70 grayscale group-hover:grayscale-0 transition duration-700" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <div class="absolute bottom-4 left-4 bg-white/90 backdrop-blur px-3 py-1.5 rounded-lg shadow-sm">
+                    <p class="text-xs font-bold flex items-center gap-1">
+                        <i class="ph ph-navigation-arrow text-blue-600"></i> Erlangen
+                    </p>
+                </div>
+            </div>
+
+            <!-- 4. 技能栈 (1x2) -->
+            <div class="bento-card md:row-span-2 p-6 bg-gray-50 flex flex-col">
+                <h3 class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Tech Stack</h3>
+                
+                <div class="space-y-5 flex-1 overflow-y-auto">
+                    <!-- AI Section -->
+                    <div class="group">
+                        <div class="flex items-center gap-2 mb-2 text-gray-800">
+                            <i class="ph ph-robot text-lg"></i>
+                            <span class="font-semibold text-sm">AI & Deep Learning</span>
+                        </div>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">PyTorch</span>
+                            <span class="skill-tag bg-blue-100 text-blue-700 border-blue-200">MONAI</span>
+                        </div>
+                    </div>
+
+                    <!-- Imaging Section -->
+                    <div class="group">
+                        <div class="flex items-center gap-2 mb-2 text-gray-800">
+                            <i class="ph ph-aperture text-lg"></i>
+                            <span class="font-semibold text-sm">Image Processing</span>
+                        </div>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="skill-tag">SimpleITK</span>
+                            <span class="skill-tag">Nibabel</span>
+                            <span class="skill-tag">3D Slicer</span>
+                            <span class="skill-tag">DICOM</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Dev Section -->
+                    <div class="group">
+                        <div class="flex items-center gap-2 mb-2 text-gray-800">
+                            <i class="ph ph-terminal-window text-lg"></i>
+                            <span class="font-semibold text-sm">Development</span>
+                        </div>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="skill-tag">Git</span>
+                            <span class="skill-tag">Docker</span>
+                            <span class="skill-tag">Streamlit</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. 邮箱 (2x1) -->
+            <div class="bento-card md:col-span-2 p-6 flex items-center justify-between cursor-pointer group hover:bg-blue-50/50 transition" onclick="copyEmail()">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 bg-blue-100/80 text-blue-600 rounded-full flex items-center justify-center text-2xl group-hover:scale-110 group-hover:rotate-12 transition duration-300">
+                        <i class="ph ph-envelope-simple"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-gray-400 uppercase font-semibold tracking-wider">Get in touch</p>
+                        <h3 class="text-lg font-semibold text-gray-800 mt-1">shawn.zhao24@outlook.com</h3>
+                    </div>
+                </div>
+                <i class="ph ph-copy text-xl text-gray-300 group-hover:text-blue-500 transition"></i>
+            </div>
+
+            <!-- 6. CV 下载 (1x1) -->
+            <a href="./cv.pdf" target="_blank" class="bento-card p-6 flex flex-col justify-between group hover:bg-black hover:text-white transition-colors">
+                <div class="flex justify-between items-start">
+                    <i class="ph ph-file-pdf text-3xl text-gray-400 group-hover:text-white/80 transition"></i>
+                    <div class="bg-gray-100 group-hover:bg-gray-800 p-1.5 rounded-md transition">
+                        <i class="ph ph-download-simple text-gray-600 group-hover:text-white"></i>
+                    </div>
+                </div>
+                <div>
+                    <p class="font-bold text-lg">Resume</p>
+                    <p class="text-xs text-gray-500 group-hover:text-gray-400">.PDF Format</p>
+                </div>
+            </a>
+
+            <!-- 7. 社交链接 (1x1) -->
+            <div class="bento-card p-6 flex flex-col justify-center gap-3">
+                <a href="https://www.linkedin.com/in/xiang-zhao-750860398" target="_blank" class="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-100 transition">
+                    <i class="ph ph-linkedin-logo text-2xl text-[#0077b5]"></i>
+                    <span class="text-sm font-medium">LinkedIn</span>
+                </a>
+                <a href="#" class="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-100 transition">
+                    <i class="ph ph-github-logo text-2xl"></i>
+                    <span class="text-sm font-medium">GitHub</span>
+                </a>
+            </div>
+
+        </div>
+
+        <footer class="text-center pt-10 pb-6">
+            <p class="text-xs text-gray-400">
+                Designed with <span class="text-red-400">♥</span> in Erlangen. <br>
+                © 2025 Xiang Zhao.
+            </p>
+        </footer>
+
+    </div>
+
+    <style>
+        /* 技能标签的小样式 */
+        .skill-tag {
+            font-size: 10px;
+            padding: 3px 8px;
+            background: white;
+            border: 1px solid #E5E7EB;
+            border-radius: 6px;
+            color: #4B5563;
+            transition: all 0.2s;
+        }
+        .group:hover .skill-tag {
+            border-color: #D1D5DB;
+        }
+    </style>
+
+    <script>
+        // 打字机特效逻辑
+        const words = ["Medical Engineer", "AI Researcher", "FAU Student", "Python Dev"];
+        let i = 0;
+        let timer;
+
+        function typingEffect() {
+            const word = words[i].split("");
+            var loopTyping = function() {
+                if (word.length > 0) {
+                    document.getElementById('typewriter').innerHTML += word.shift();
+                } else {
+                    setTimeout(deletingEffect, 2000); // 停顿2秒后删除
+                    return false;
+                }
+                timer = setTimeout(loopTyping, 100);
+            };
+            loopTyping();
+        }
+
+        function deletingEffect() {
+            const word = words[i].split("");
+            var loopDeleting = function() {
+                if (word.length > 0) {
+                    word.pop();
+                    document.getElementById('typewriter').innerHTML = word.join("");
+                } else {
+                    if (words.length > (i + 1)) { i++; } else { i = 0; }
+                    typingEffect();
+                    return false;
+                }
+                timer = setTimeout(loopDeleting, 50);
+            };
+            loopDeleting();
+        }
+
+        // 启动打字机
+        document.getElementById('typewriter').innerHTML = "";
+        typingEffect();
+
+        // 邮箱复制逻辑
+        function copyEmail() {
+            const email = "shawn.zhao24@outlook.com";
+            navigator.clipboard.writeText(email).then(() => {
+                const toast = document.getElementById("toast");
+                toast.classList.remove("opacity-0");
+                setTimeout(() => {
+                    toast.classList.add("opacity-0");
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
