@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Xiang Zhao | Medical AI Portfolio</title>
+    <meta
+      name="description"
+      content="Xiang Zhao, M.Sc. Medical Engineering student at FAU Erlangen-Nurnberg specializing in medical image and data processing."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#home" aria-label="Xiang Zhao home">
+        <span class="brand-mark">XZ</span>
+        <span>Xiang Zhao</span>
+      </a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="#expertise">Expertise</a>
+        <a href="#projects">Projects</a>
+        <a href="#fit">Role Fit</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="header-action" href="assets/Xiang_Zhao_CV.pdf" download>Download CV</a>
+    </header>
+
+    <main>
+      <section class="hero" id="home">
+        <div class="hero-content">
+          <p class="eyebrow">M.Sc. Medical Engineering | FAU Erlangen-Nurnberg</p>
+          <h1>Medical AI, built with clarity.</h1>
+          <p class="hero-copy">
+            I am Xiang Zhao, a medical image and data processing student focused on MRI
+            segmentation, denoising, Python workflows, and applied deep learning.
+          </p>
+          <div class="hero-actions">
+            <a class="primary-action" href="assets/Xiang_Zhao_CV.pdf" download>Download CV</a>
+            <a class="secondary-action" href="mailto:shawn.zhao24@outlook.com">Contact Me</a>
+          </div>
+        </div>
+        <div class="hero-device" aria-label="Medical AI portfolio preview">
+          <div class="device-bar">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="device-screen">
+            <img src="assets/medical-ai-visual.png" alt="Abstract medical imaging and AI network visual" />
+            <div class="screen-card">
+              <span>Candidate Focus</span>
+              <strong>Medical Image Processing</strong>
+            </div>
+            <div class="screen-metric">
+              <span>Available</span>
+              <strong>15-20 h/week</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="intro-band" aria-label="Candidate snapshot">
+        <div class="metric">
+          <span>Location</span>
+          <strong>Erlangen, Germany</strong>
+        </div>
+        <div class="metric">
+          <span>Languages</span>
+          <strong>English fluent, German A1</strong>
+        </div>
+        <div class="metric">
+          <span>Focus</span>
+          <strong>Medical AI and imaging</strong>
+        </div>
+        <div class="metric">
+          <span>Tools</span>
+          <strong>Python, PyTorch, MONAI</strong>
+        </div>
+      </section>
+
+      <section class="section" id="expertise">
+        <div class="section-head">
+          <p class="eyebrow">Technical Profile</p>
+          <h2>Built for research teams that need clean implementation and clear results.</h2>
+        </div>
+        <div class="expertise-grid">
+          <article class="skill-card">
+            <h3>Medical Imaging</h3>
+            <p>MRI reconstruction, K-space processing, image segmentation, DICOM/NIfTI standards.</p>
+          </article>
+          <article class="skill-card">
+            <h3>Machine Learning</h3>
+            <p>Deep learning, U-Net, 3D segmentation, Dice loss, data augmentation, model evaluation.</p>
+          </article>
+          <article class="skill-card">
+            <h3>Data Workflows</h3>
+            <p>Preprocessing pipelines, visualization, PSNR/SSIM evaluation, reproducible reporting.</p>
+          </article>
+          <article class="skill-card">
+            <h3>AI Development</h3>
+            <p>Codex and ChatGPT for AI-assisted coding, debugging, documentation, and data analysis.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section split" id="projects">
+        <div class="section-head">
+          <p class="eyebrow">Selected Projects</p>
+          <h2>Applied deep learning projects with MRI data and measurable outputs.</h2>
+        </div>
+        <div class="project-tabs" role="tablist" aria-label="Project selection">
+          <button class="tab-button is-active" type="button" data-project="segmentation">Segmentation</button>
+          <button class="tab-button" type="button" data-project="denoising">Denoising</button>
+          <button class="tab-button" type="button" data-project="community">Leadership</button>
+        </div>
+        <div class="project-panel" id="project-panel" aria-live="polite"></div>
+      </section>
+
+      <section class="section fit-section" id="fit">
+        <div class="section-head">
+          <p class="eyebrow">Role Fit</p>
+          <h2>Best matches for working student opportunities around Erlangen.</h2>
+        </div>
+        <div class="fit-grid">
+          <article>
+            <span class="fit-score">Strong</span>
+            <h3>Medical Imaging AI</h3>
+            <p>Image preprocessing, segmentation, denoising, evaluation, and experiment documentation.</p>
+          </article>
+          <article>
+            <span class="fit-score">Strong</span>
+            <h3>Data Analysis and Automation</h3>
+            <p>Python-based analysis, pipeline support, visualization, reporting, and validation tasks.</p>
+          </article>
+          <article>
+            <span class="fit-score">Good</span>
+            <h3>AI Services Support</h3>
+            <p>AI-assisted development, documentation, workflow support, and cross-team communication.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section cv-section" id="cv">
+        <div class="cv-copy">
+          <p class="eyebrow">Curriculum Vitae</p>
+          <h2>One-page CV optimized for English-speaking technical roles.</h2>
+          <p>
+            Current CV highlights FAU Medical Engineering, MRI image processing, Python, PyTorch,
+            MONAI, machine learning, and AI-assisted development experience.
+          </p>
+          <div class="hero-actions">
+            <a class="primary-action" href="assets/Xiang_Zhao_CV.pdf" download>Download PDF</a>
+            <button class="secondary-action button-reset" type="button" id="copy-intro">Copy Intro</button>
+          </div>
+        </div>
+        <a class="cv-preview" href="assets/Xiang_Zhao_CV.pdf" target="_blank" rel="noreferrer">
+          <img src="assets/cv-preview.png" alt="Preview of Xiang Zhao's CV" />
+        </a>
+      </section>
+
+      <section class="section contact-section" id="contact">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2>Open to working student roles in Erlangen, Forchheim, Nurnberg, and hybrid teams.</h2>
+        </div>
+        <div class="contact-actions">
+          <a href="mailto:shawn.zhao24@outlook.com">shawn.zhao24@outlook.com</a>
+          <a href="tel:+4915258477368">+49 152 5847 7368</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>Xiang Zhao</span>
+      <span>Medical Image and Data Processing</span>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
